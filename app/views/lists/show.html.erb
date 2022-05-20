@@ -1,0 +1,27 @@
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.listchallenges.com/f/lists/63879069-2c06-4430-9345-4325152efd73.jpg)">
+  <%= @list.name %>
+</div>
+<br>
+<br>
+<br>
+
+<ul>
+    <% @list.bookmarks.each do |bookmark| %>
+<div class="card-product" >
+  <%=image_tag(bookmark.movie.poster_url, :size => "260x180") %> 
+  <div class="card-product-infos">
+    <h2><%= bookmark.movie.title %> </h2>
+    <p><%= bookmark.movie.overview %> <strong><%= bookmark.comment %> </strong> <%= bookmark.movie.rating %> </p>
+      <%= link_to "Delete #{bookmark.movie.title}", bookmark_path(bookmark),
+            method: :delete,
+            data: { confirm: "Are you sure?" }, class: "btn btn-flat" %>
+    
+  </div>
+</div>
+<% end %>
+
+   
+</ul>
+<%= link_to "Add Movie", new_list_bookmark_path(@list) , class: "btn btn-ghost" %>
+
+<%= link_to "Go back to index", lists_path, class: "btn btn-ghost" %>

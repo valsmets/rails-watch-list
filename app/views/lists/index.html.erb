@@ -1,0 +1,28 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.squarespace-cdn.com/content/5bbcad0f2727be3646b9fee1/1572897508352-QXOCGSHA4TD89SA03TC0/?content-type=image%2Fpng);">
+  <div class="container">
+    <h1> <strong>Manage </strong>your favorite movies and TV show list with ease.<br><strong> Create </strong>your watch list, keep track of the Movies you want to watch, add comments</strong>!</h1>
+    <p> </p>
+    <%= link_to "Add a new list", new_list_path , class: "btn btn-flat" %>
+  </div>
+</div>
+<br>
+<ul>
+  <% @lists.each do |list| %>
+  <div class="card-product">
+  <img src="https://picsum.photos/200"/>
+  <div class="card-product-infos">
+    <h2><%= link_to list.name, list_path(list) %> </h2>
+   <%= link_to "X",
+            list_path(list),
+            method: :delete,
+            data: { confirm: "Are you sure?" }, class: "btn btn-ghost" %>
+            
+  </div>
+</div>
+<br>
+
+  <% end %>
+</ul>
+
+<%# <%= link_to "Add a new list", new_list_path %> 
+  

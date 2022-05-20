@@ -1,0 +1,11 @@
+<br>
+<br>
+<%= simple_form_for(@list) do |f| %>
+  <div class='search-form-control'> 
+  <%= f.input :name, label_html: { class: 'coucou' }, label: 'Give a name to your funky list ' %>
+  
+  </div>
+
+  <%= f.submit :add, class: 'btn btn-primary' %>
+
+<% end %>
